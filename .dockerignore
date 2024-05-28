@@ -1,0 +1,33 @@
+# Ignore Python bytecode files
+*.pyc
+*.pyo
+__pycache__
+
+# Ignore virtual environment directories
+venv/
+.venv/
+env/
+.env/
+
+# Ignore distribution / packaging files
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+wheels/
+pip-wheel-metadata/
+
+# Ignore application logs
+*.log
+
+# Ignore local environments and configuration files
+.env
+.DS_Store
+
+# Ignore .idea folder for JetBrains IDEs
+.idea/
+
+# Ignore all files starting with . (hidden files) except .env.example
+.*
+!.env.example

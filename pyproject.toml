@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "hamster-kombat-bot"
+version = "1.0"
+description = ""
+authors = ["DragonSov"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+telethon = "^1.35.0"
+pydantic-settings = "^2.2.1"
+aiohttp = "^3.9.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,9 @@
+services:
+  bot:
+    build: .
+    volumes:
+      - ./sessions:/app/sessions
+    env_file:
+      - .env
+    restart: always
+    command: [ "poetry", "run", "python", "main.py", "--run-bot" ]
