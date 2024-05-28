@@ -5,5 +5,7 @@ services:
       - ./sessions:/app/sessions
     env_file:
       - .env
+    environment:
+      - PYTHONPATH=/app
     restart: always
-    command: [ "poetry", "run", "python", "main.py", "--run-bot" ]
+    command: [ "poetry", "run", "python", "src/main.py", "--run-bot" ]
