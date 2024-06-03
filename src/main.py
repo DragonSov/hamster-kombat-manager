@@ -167,7 +167,7 @@ async def process_upgrades(tapper: Tapper, token: str, profile: dict, session_na
 	]
 
 	upgrade_priority = {
-		upgrade["id"]: upgrade["profitPerHourDelta"] / upgrade["price"]
+		upgrade["id"]: upgrade["profitPerHourDelta"] / upgrade["price"] if upgrade["price"] != 0 else float('inf')
 		for upgrade in available_upgrades
 		if await is_upgrade_eligible(upgrade)
 	}
@@ -183,7 +183,7 @@ async def process_upgrades(tapper: Tapper, token: str, profile: dict, session_na
 		else:
 			profit_per_hour_delta = next(
 				upgrade["profitPerHourDelta"] for upgrade in upgrades if upgrade["id"] == upgrade_id)
-			payback_period = price / profit_per_hour_delta if profit_per_hour_delta > 0 else float('inf')
+			payback_period = price / profit_per_hour_delta if profit_per_hour_delta != 0 else 0
 
 			await tapper.buy_upgrade(token, upgrade_id)
 			profile["balanceCoins"] -= price
