@@ -151,7 +151,7 @@ async def process_upgrades(tapper: Tapper, token: str, profile: dict, session_na
 
 	async def is_upgrade_eligible(upgrade: dict) -> bool:
 		return (
-				upgrade["level"] < settings.MAX_LEVEL_UPGRADE
+				upgrade["level"] <= settings.MAX_LEVEL_UPGRADE
 				and (upgrade["level"] - 1) != upgrade.get("maxLevel", -1)
 				and upgrade.get("cooldownSeconds", 0) == 0
 		)
